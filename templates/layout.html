@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8" />
+	<title>事件统计-Layout</title>
+
+	<meta name="description" content="overview &amp; stats" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+	<!-- bootstrap & fontawesome -->
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../static/css/font-awesome.min.css" />
+
+	<!-- page specific plugin styles -->
+
+	<!-- text fonts -->
+	<link rel="stylesheet" href="../static/css/ace-fonts.css" />
+
+	<!-- ace styles -->
+	<link rel="stylesheet" href="../static/css/ace.min.css" id="main-ace-style" />
+
+
+	<link rel="stylesheet" href="../static/css/ace-skins.min.css" />
+	<link rel="stylesheet" href="../static/css/ace-rtl.min.css" />
+
+    <link rel="stylesheet" href="../static/css/datepicker.css" />
+	<link rel="stylesheet" href="../static/css/bootstrap-timepicker.css" />
+	<link rel="stylesheet" href="../static/css/daterangepicker.css" />
+	<link rel="stylesheet" href="../static/css/bootstrap-datetimepicker.css" />
+
+
+	<!-- inline styles related to this page -->
+
+	<!-- ace settings handler -->
+	<script src="../static/js/ace-extra.min.js"></script>
+
+</head>
+<body class="no-skin">
+
+	<div id="navbar" class="navbar navbar-default">
+		<script type="text/javascript">
+			try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+		</script>
+		<div class="navbar-container" id="navbar-container">
+		<!-- #section:basics/sidebar.mobile.toggle -->
+		<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
+			<span class="sr-only">Toggle sidebar</span>
+
+			<span class="icon-bar"></span>
+
+			<span class="icon-bar"></span>
+
+			<span class="icon-bar"></span>
+		</button>
+
+		<!-- /section:basics/sidebar.mobile.toggle -->
+		<div class="navbar-header pull-left">
+			<!-- #section:basics/navbar.layout.brand -->
+			<a href="/" class="navbar-brand">
+				<small>
+					<span class="fa fa-plane"></span>
+					事件统计-test
+				</small>
+			</a>
+
+			<!-- /section:basics/navbar.layout.brand -->
+
+			<!-- #section:basics/navbar.toggle -->
+
+			<!-- /section:basics/navbar.toggle -->
+		</div>
+
+		<!-- #section:basics/navbar.dropdown -->
+		<div class="navbar-buttons navbar-header pull-right" role="navigation">
+			<ul class="nav ace-nav">
+				<!-- #section:basics/navbar.user_menu -->
+				<li class="light-blue">
+					<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+						<span class="user-info">
+                            {% if not session.logged_in %}
+                            请登录!
+                            {% else %}
+							<small>Welcome,</small>
+							Lyan
+                            {% endif %}
+						</span>
+
+						<i class="ace-icon fa fa-caret-down"></i>
+					</a>
+
+					<ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+						<li class="dropdown-header">
+							<i class="ace-icon fa fa-user"></i>
+                            {% if not session.logged_in %}
+							请登录
+                            {% else %}
+                            已登录
+                            {% endif %}
+						</li>
+                    	{% if not session.logged_in %}
+						<li>
+							<a href="/login.html">
+								<i class="ace-icon fa fa-user"></i>
+								Login
+							</a>
+						</li>
+                    	{% endif %}
+
+
+						<li>
+							<a href="/logout">
+								<i class="ace-icon fa fa-power-off"></i>
+								Logout
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<!-- /section:basics/navbar.user_menu -->
+			</ul>
+		</div>
+			<!-- /section:basics/navbar.dropdown -->
+		</div><!-- /.navbar-container -->
+	</div>
+
+	<div class="main-container" id="main-container">
+		<script type="text/javascript">
+			try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+		</script>
+        <!--左侧导航栏开始-->
+		<div id="sidebar" class="sidebar responsive">
+			<script type="text/javascript">
+				try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+			</script>
+
+			<ul class="nav nav-list">
+
+            	{% if (mainurl or openurl) %}
+				<li class="active open">
+                {% else %}
+                <li class="">
+                {% endif %}
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-desktop"></i>
+						<span class="menu-text"> 事件统计 </span>
+
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+
+					<b class="arrow"></b>
+
+					<ul class="submenu">
+                        {% if mainurl %}
+						<li class="active">
+                        {% else %}
+                        <li class="">
+                        {% endif %}
+							<a href="/">
+								<i class="menu-icon fa fa-caret-right"></i>
+								主机
+							</a>
+
+							<b class="arrow"></b>
+						</li>
+
+						{% if openurl %}
+						<li class="active">
+                        {% else %}
+                        <li class="">
+                        {% endif %}
+							<a href="openform.html">
+								<i class="menu-icon fa fa-caret-right"></i>
+								开放
+							</a>
+
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+
+			</ul><!-- /.nav-list -->
+
+			<!-- #section:basics/sidebar.layout.minimize -->
+			<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+				<i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+			</div>
+
+			<!-- /section:basics/sidebar.layout.minimize -->
+			<script type="text/javascript">
+				try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+			</script>
+		</div>
+        <!--左侧导航栏结束-->
+        {% block body%}
+        {% endblock %}
+	</div>
+
+
+<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='../static/js/jquery.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='../static/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="../static/js/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+
+		<script src="../static/js/jquery-ui.custom.min.js"></script>
+		<script src="../static/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="../static/js/jquery.easypiechart.min.js"></script>
+		<script src="../static/js/jquery.sparkline.min.js"></script>
+		<script src="../static/js/flot/jquery.flot.min.js"></script>
+		<script src="../static/js/flot/jquery.flot.pie.min.js"></script>
+		<script src="../static/js/flot/jquery.flot.resize.min.js"></script>
+    	<script src="../static/js/jquery.maskedinput.min.js"></script>
+    	<script src="../static/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script src="../static/js/date-time/bootstrap-timepicker.min.js"></script>
+		<script src="../static/js/date-time/moment.min.js"></script>
+		<script src="../static/js/date-time/daterangepicker.min.js"></script>
+		<script src="../static/js/date-time/bootstrap-datetimepicker.min.js"></script>
+
+		<!-- ace scripts -->
+		<script src="../static/js/ace-elements.min.js"></script>
+		<script src="../static/js/ace.min.js"></script>
+
+    	<!-- highchats script -->
+    	<script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    	<script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/exporting.js"></script>
+
+<script>
+    jQuery(function($){
+        $('.input-daterange').datepicker({autoclose:true});
+        $('.date-timepicker').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm:ss'
+        }).next().on(ace.click_event, function(){
+            $(this).prev().focus();
+        });
+        //datatimepicker end
+		var i=1;
+        $('#btn1').click(function(){
+            $('#div-time').append(
+                    "<div class='form-group'>"+
+                	"<div class='input-group'>"+
+                    "<input type='text' class='input-sm form-control date-timepicker' name='start"+i+ "' />"+
+                    "<span class='input-group-addon'>"+
+                    "<i class='fa fa-exchange'></i>"+
+                    "</span>"+
+                    "<input type='text' class='input-sm form-control date-timepicker' name='end"+i+ "' />"+
+                    "</div>"+
+                	"</div>"
+            );
+            $('.date-timepicker').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm:ss'
+            }).next().on(ace.click_event, function(){
+                $(this).prev().focus();
+            });
+            i=i+1;
+            $('#form1').attr('action','msearch&'+(i-1));
+        });
+        $('#btn2').click(function(){
+            $('#div-time .form-group').last().remove();
+            i=i-1;
+            $('#form1').attr('action','msearch&'+(i-1));
+        })
+
+
+    })
+</script>
+
+<!-- hightchart -->
+<script>
+$(function () {
+    var x;
+    var y;
+    var inputele0=document.getElementById('div-input0').getElementsByTagName("input");
+    var inputele1=document.getElementById('div-input1').getElementsByTagName("input");
+    var inputval0=new Array();
+    var inputval1=new Array();
+    for (x=0;x<(inputele0.length);x++){
+        inputval0.push(inputele0[x].value);
+    }
+    for (y=0;y<inputele1.length;y++){
+        inputval1.push(Number(inputele1[y].value));
+    }
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Monthly Average Rainfall'
+        },
+        subtitle: {
+            text: 'Source: WorldClimate.com'
+        },
+        xAxis: {
+            categories: inputval0
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '报警次数 (次)'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} 次</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '报警次数',
+            data: inputval1
+
+        }]
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class="main-content">
+            <!-- 面包屑导航开始 -->
+            <div class="breadcrumbs" id="breadcrumbs">
+                <script type="text/javascript">
+                    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+				</script>
+                <ul class="breadcrumb">
+					<li>
+						<i class="ace-icon fa fa-home home-icon"></i>
+						<a href="/">Home</a>
+					</li>
+					<li class="">事件查询</li>
+                    <li class="active">主机</li>
+				</ul><!-- /.breadcrumb -->
+                <!-- #section:basics/content.searchbox -->
+				<div class="nav-search" id="nav-search">
+					<form class="form-search">
+						<span class="input-icon">
+							<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+							<i class="ace-icon fa fa-search nav-search-icon"></i>
+						</span>
+					</form>
+				</div>
+			</div>
+            <!-- 面包屑导航结束 -->
+
+            <div class="page-content">
+                <div class="page-content-area">
+                    <!-- page-header开始-->
+                       <div class="page-header">
+                           <h1>
+                               事件查询
+                               <small>
+                                   <i class="ace-icon fa fa-angle-double-right"></i>
+                                   主机
+                               </small>
+                           </h1>
+                       </div>
+                    <!-- /.page-header结束 -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form class="form-horizontal" role="form" action="/msearch&0" method="post" id="form1">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-1">
+                                    <div class="form-group">
+                                        <label><h4>日期范围:</h4></label>
+                                        <div class="input-group">
+                                            <input type="text" class="input-sm form-control date-timepicker" name="start0"/>
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-exchange"></i>
+                                            </span>
+                                            <input type="text" class="input-sm form-control date-timepicker" name="end0"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                               <hr />
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-1">
+                                    <div class="form-group">
+                                        <label><h4>剔除时间:</h4></label>
+                                        <br />
+                                        <button type="button" class="btn btn-primary btn-xs" id="btn1">
+                                            <span class="fa fa-plus"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-xs" id="btn2">
+                                            <span class="fa fa-minus"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-1" id="div-time">
+
+                                </div>
+                            </div>
+                            <div class="row">
+                               <hr />
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-1">
+                                    <label><h4>其它筛选条件</h4></label>
+                                    <div class="form-group">
+                                        <label class="control-label">按IP筛选</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="clearfix form-actions">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button class="btn btn-info" type="submit">
+                                        <i class="ace-icon fa fa-check bigger-110"></i>
+                                        Submit
+                                    </button>
+
+                                    &nbsp; &nbsp; &nbsp;
+                                    <button class="btn" type="reset">
+                                        <i class="ace-icon fa fa-undo bigger-110"></i>
+                                        Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+    </div>
+{% endblock %}
