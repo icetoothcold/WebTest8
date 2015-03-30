@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class="main-content">
+        <div class="page-content">
+            <div id="container" style="min-width:700px;height:400px"></div>
+            <div id="div-input0">
+                {% for data in testdata %}
+                <input value="{{ data[0] }}">
+                {% endfor %}
+            </div>
+            <div id="div-input1">
+                {% for data in testdata %}
+                <input value="{{ data[1] }}">
+                {% endfor %}
+            </div>
+            <p id="p1"></p>
+            <p id="p2"></p>
+        </div>
+    </div>
+
+{% endblock %}

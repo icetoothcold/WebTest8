@@ -1,7 +1,71 @@
-{% extends "layout.html" %}
+{% extends "result_layout.html" %}
 {% block body %}
     <div class="main-content">
+        <div id="sidebar" class="sidebar h-sidebar navbar-collapse collapse">
+			<script type="text/javascript">
+				try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+			</script>
+            <ul class="nav nav-list">
+				<li class="active open hover">
+					<a href="result.html">
+						<i class="menu-icon fa fa-tachometer"></i>
+						<span class="menu-text"> Result </span>
+					</a>
+					<b class="arrow"></b>
+				</li>
+                <li class="hover">
+					<a href="result1.html">
+						<i class="menu-icon fa fa-tachometer"></i>
+						<span class="menu-text"> Result1 </span>
+					</a>
+					<b class="arrow"></b>
+				</li>
+                <li class="hover">
+					<a href="result2.html">
+						<i class="menu-icon fa fa-tachometer"></i>
+						<span class="menu-text"> Result2 </span>
+					</a>
+					<b class="arrow"></b>
+				</li>
+                <li class="hover">
+					<a href="result3.html">
+						<i class="menu-icon fa fa-tachometer"></i>
+						<span class="menu-text"> Result3 </span>
+					</a>
+					<b class="arrow"></b>
+				</li>
+                <li class="hover">
+					<a href="result4.html">
+						<i class="menu-icon fa fa-tachometer"></i>
+						<span class="menu-text"> Result4 </span>
+					</a>
+					<b class="arrow"></b>
+				</li>
+                <li class="hover">
+					<a href="result5.html">
+						<i class="menu-icon fa fa-tachometer"></i>
+						<span class="menu-text"> Result5 </span>
+					</a>
+					<b class="arrow"></b>
+				</li>
+            </ul>
+        </div>
         <div class="page-content">
+            <!-- page-header开始-->
+                <div class="page-header">
+                    <h1>
+                        Home
+                        <small>
+                            <i class="ace-icon fa fa-angle-double-right"></i>
+                            主机
+                        </small>
+                        <small>
+                            <i class="ace-icon fa fa-angle-double-right"></i>
+                            result
+                        </small>
+                    </h1>
+                </div>
+            <!-- /.page-header结束 -->
             <div id="container" style="min-width:700px;height:400px"></div>
             <div id="div-input0">
                 {% for data in testdata %}
