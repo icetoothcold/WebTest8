@@ -8,7 +8,7 @@ timeline = []
 @app.route('/')
 def hello_world():
     cururl=url_for('hello_world')
-    return render_template("form.html",mainurl=cururl)
+    return render_template("openform.html",mainurl=cururl)
 
 @app.route('/msearch&<count>',methods=['POST'])
 def msearch(count):

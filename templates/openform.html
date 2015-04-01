@@ -11,8 +11,8 @@
 						<i class="ace-icon fa fa-home home-icon"></i>
 						<a href="/">Home</a>
 					</li>
-					<li class="">事件查询</li>
-                    <li class="active">主机</li>
+					<li class="">事件统计</li>
+                    <li class="active">开放事件</li>
 				</ul><!-- /.breadcrumb -->
                 <!-- #section:basics/content.searchbox -->
 				<div class="nav-search" id="nav-search">
@@ -31,23 +31,23 @@
                     <!-- page-header开始-->
                        <div class="page-header">
                            <h1>
-                               事件查询
+                               事件统计
                                <small>
                                    <i class="ace-icon fa fa-angle-double-right"></i>
-                                   主机
+                                   开放事件
                                </small>
                            </h1>
                        </div>
                     <!-- /.page-header结束 -->
                 <div class="row">
                     <div class="col-sm-12">
-                        <form class="form-horizontal" role="form" action="/msearch&0" method="post" id="form1">
+                        <form class="form-horizontal" role="form" action="/msearch&0" method="post" id="form1" onsubmit="return formsubmit()">
                             <div class="row">
                                 <div class="col-sm-6 col-sm-offset-1">
                                     <div class="form-group">
                                         <label><h4>日期范围:</h4></label>
                                         <div class="input-group">
-                                            <input type="text" class="input-sm form-control date-timepicker" name="start0"/>
+                                            <input type="text" class="input-sm form-control date-timepicker" id="start0" name="start0"/>
                                             <span class="input-group-addon">
                                                 <i class="fa fa-exchange"></i>
                                             </span>
